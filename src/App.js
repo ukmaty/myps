@@ -1,7 +1,10 @@
+import React, { useState } from "react";
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [count, setCount] = useState(1);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +20,10 @@ function App() {
         >
           Learn React
         </a>
+        <div>{count}</div>
+        <div>
+          <button onClick={()=>{ setCount(count + 1)}}>Increment</button>
+        </div>
       </header>
     </div>
   );
