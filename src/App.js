@@ -1,32 +1,54 @@
-import React, { useState } from "react";
-import logo from './logo.svg';
+import React, { useState, useEffect } from "react";
+import * as contentful from "contentful";
 import './App.css';
 
 function App() {
-  const [count, setCount] = useState(1);
+  const [works, setWorks] = useState();
+  const client = contentful.createClient({
+    space: process.env.REACT_APP_CONTENTFUL_SPACE_ID,
+    accessToken: process.env.REACT_APP_CONTENTFUL_CDA_TOKEN 
+  });
+
+  useEffect(() => {
+      fetchData();
+    }, [works]
+  );
+
+  const fetchData = async() => {
+    try {
+      const resp = await client.getEntries({content_type: "works"});
+      setWorks(resp.items);
+    } catch(error) {
+      console.log("error: ", error);
+    }
+  };
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <div>{count}</div>
-        <div>
-          <button onClick={()=>{ setCount(count + 1)}}>Increment</button>
-        </div>
-      </header>
+      <PostList works={works}/>
     </div>
   );
 }
+
+const PostList = ({works}) => {
+  return (
+    <>
+      <div>Post list</div>
+      <ul>
+        { works && 
+          works.map((work, key) => {
+            return (
+              <li key={key}>
+                <h2>{work.fields.title}</h2>
+                <div>{work.fields.subtitle}</div>
+                <div>{work.fields.slug}</div>
+              </li>
+            )
+          })
+        }
+      </ul>
+    </>
+  )
+};
 
 export default App;
