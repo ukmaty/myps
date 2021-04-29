@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import * as contentful from "contentful";
 import './App.css';
 
@@ -14,14 +14,15 @@ function App() {
     }, [works]
   );
 
-  const fetchData = async() => {
+  const fetchData = useCallback(
+    async() => {
     try {
       const resp = await client.getEntries({content_type: "works"});
       setWorks(resp.items);
     } catch(error) {
       console.log("error: ", error);
     }
-  };
+  });
 
   return (
     <div className="App">
