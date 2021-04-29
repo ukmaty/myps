@@ -10,7 +10,8 @@ function App() {
     accessToken: process.env.REACT_APP_CONTENTFUL_CDA_TOKEN 
   });
 
-  useEffect(() => {
+  useEffect(
+    () => {
     const fetchData = async() => {
       try {
         const resp = await client.getEntries({content_type: "works"});
@@ -19,11 +20,11 @@ function App() {
           console.log("error: ", error);
         }
     };
+
       fetchData();
-    }, [works]
+    }
+    , [works, client]
   );
-
-
 
 
   return (
