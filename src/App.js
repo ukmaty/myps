@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Route} from "react-router-dom";
 import FrontPage from "./components/FrontPage";
 import AboutPage from "./components/AboutPage";
 import './App.css';
