@@ -1,58 +1,20 @@
-import React, { useState, useEffect } from "react";
-import * as contentful from "contentful";
+import {BrowserRouter as Router, Route, Link} from "react-router-dom";
+import FrontPage from "./components/FrontPage";
+import AboutPage from "./components/AboutPage";
 import './App.css';
 
 function App() {
-  const [works, setWorks] = useState();
-
-  const client = contentful.createClient({
-    space: process.env.REACT_APP_CONTENTFUL_SPACE_ID,
-    accessToken: process.env.REACT_APP_CONTENTFUL_CDA_TOKEN 
-  });
-
-  useEffect(
-    () => {
-    const fetchData = async() => {
-      try {
-        const resp = await client.getEntries({content_type: "works"});
-        setWorks(resp.items);
-      } catch(error) {
-          console.log("error: ", error);
-        }
-    };
-
-      fetchData();
-    }
-    , [works, client]
-  );
-
 
   return (
     <div className="App">
-      <PostList works={works}/>
+      <Router>
+          <Link to="/">Home</Link>
+          <Link to="/About">About</Link>
+          <Route path="/" component={FrontPage}/>
+          <Route path="/About" component={AboutPage}/>
+      </Router>
     </div>
   );
 }
-
-const PostList = ({works}) => {
-  return (
-    <>
-      <div>Post list</div>
-      <ul>
-        { works && 
-          works.map((work, key) => {
-            return (
-              <li key={key}>
-                <h2>{work.fields.title}</h2>
-                <div>{work.fields.subtitle}</div>
-                <div>{work.fields.slug}</div>
-              </li>
-            )
-          })
-        }
-      </ul>
-    </>
-  )
-};
 
 export default App;
