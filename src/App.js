@@ -8,9 +8,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-          <Link to="/">Home</Link>
-          <Link to="/About">About</Link>
-          <Route path="/" component={FrontPage}/>
+          <Route exact path="/" component={FrontPage}/>
           <Route path="/About" component={AboutPage}/>
       </Router>
     </div>

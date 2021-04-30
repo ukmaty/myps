@@ -1,7 +1,10 @@
+import Nav from "./Nav";
+
 const AboutPage = () => {
   return (
     <>
-      <h1>Front Page Title</h1>
+      <h1>About Page Title</h1>
+      <Nav />
       <div>About Page Content</div>
     </>
   );
