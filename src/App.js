@@ -1,22 +1,16 @@
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import FrontPage from "./components/FrontPage";
-import AboutPage from "./components/AboutPage";
-import ContactPage from "./components/ContactPage";
-import Page404 from "./components/Page404";
+import {BrowserRouter, Switch} from "react-router-dom";
+
+import Router from "./router/Router";
 import './App.css';
 
 function App() {
-
   return (
     <div className="App">
-      <Router>
+      <BrowserRouter>
         <Switch>
-          <Route path="/" component={FrontPage} exact/>
-          <Route path="/About" component={AboutPage}/>
-          <Route path="/Contact" component={ContactPage}/>
-          <Route path="*" component={Page404}/>
+          <Router/>
         </Switch>
-      </Router>
+      </BrowserRouter>
     </div>
   );
 }

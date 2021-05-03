@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
-import Nav from "./Nav";
+import React, { memo, useState, useEffect } from "react";
 import * as contentful from "contentful";
-import PostList from "./PostList";
 
-const FrontPage = () => {
+import Nav from "../Nav";
+import PostList from "../PostList";
+
+const WorksPage = memo(() => {
   const [works, setWorks] = useState();
 
   const client = contentful.createClient({
@@ -21,14 +22,15 @@ const FrontPage = () => {
       }
     };
     fetchData();
-  }, [works, client]);
+  }, []);
+
   return (
     <>
-      <h1>Front Page Title</h1>
+      <h1>Works</h1>
       <Nav />
       <PostList works={works} />
     </>
   );
-};
+});
 
-export default FrontPage;
+export default WorksPage;
