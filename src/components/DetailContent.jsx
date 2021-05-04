@@ -1,9 +1,7 @@
 import { memo } from "react";
 import marked from "marked";
-import WorksPage from "./pages/WorksPage";
 
 const DetailContent = memo(({ work }) => {
-  console.log(work);
   return (
     <article>
       {work && (

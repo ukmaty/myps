@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import * as contentful from "contentful";
 
@@ -12,8 +12,8 @@ const DetailPage = () => {
   const { slug } = useParams();
   const [work, setWork] = useState();
 
-  useEffect(() => {
-    const fetchData = async () => {
+  
+  const fetchData = useCallback( async () => {
       try {
         const resp = await client.getEntries({
           content_type: "works",
@@ -21,15 +21,33 @@ const DetailPage = () => {
         });
         setWork(resp.items[0].fields);
       } catch (error) {
-        console.log("error:", error);
+        console.log("error: ", error);
       }
-    };
-    fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return (
-    <DetailContent work={work}/>
-  );
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const resp = await client.getEntries({
+  //         content_type: "works",
+  //         "fields.slug[in]": slug,
+  //       });
+  //       setWork(resp.items[0].fields);
+  //     } catch (error) {
+  //       console.log("error:", error);
+  //     }
+  //   };
+  //   fetchData();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
+
+  return <DetailContent work={work} />;
 };
 
 export default DetailPage;

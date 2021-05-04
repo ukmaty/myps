@@ -1,4 +1,4 @@
-import { memo, useState, useEffect } from "react";
+import { memo, useState, useEffect, useCallback } from "react";
 import * as contentful from "contentful";
 
 import Cover from "../Cover";
@@ -13,17 +13,19 @@ const HomePage = memo(() => {
     accessToken: process.env.REACT_APP_CONTENTFUL_CDA_TOKEN,
   });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const resp = await client.getEntries({ content_type: "works" });
-        setWorks(resp.items);
-      } catch (error) {
-        console.log("error: ", error);
-      }
-    };
-    fetchData();
+  const fetchData = useCallback (async () => {
+    try {
+      const resp = await client.getEntries({ content_type: "works" });
+      setWorks(resp.items);
+    } catch (error) {
+      console.log("error: ", error);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   return (
     <>
