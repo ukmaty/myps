@@ -1,2 +1,0 @@
-(self.webpackChunkmypsga=self.webpackChunkmypsga||[]).push([[678],{7096:function(n,t,r){"use strict";r.r(t),r.d(t,{default:function(){return a}});r(7294);var i=r(7198),s=r(3431);var u={name:"ccxgms",styles:"display:grid;padding:10rem;background-color:#ddd;color:#fff"},e=function(){return(0,s.tZ)("div",{css:u},"COVER")},l=r(3751),a=function(){return(0,s.tZ)(i.Z,null,(0,s.tZ)(l.Z,{title:"Portfolio",description:"Gatsby site"}),(0,s.tZ)(e,null),(0,s.tZ)("main",null,"main"))}}}]);
-//# sourceMappingURL=component---src-pages-index-js-31a5e1063a6c8bdeaf3d.js.map
