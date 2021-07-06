@@ -1,10 +1,10 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 
-const SEO = ({ title, description }) => {
+const Seo = ({ title, description }) => {
     return (
         <Helmet
-            htmlAttributes={{ lang: "ja-jp" }}
+            htmlAttributes={{ lang: "ja" }}
             title={title}
             titleTemplate={`%s`}
             meta={[
@@ -37,4 +37,4 @@ const SEO = ({ title, description }) => {
     )
 }
 
-export default SEO;
+export default Seo;

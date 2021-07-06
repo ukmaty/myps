@@ -267,6 +267,7 @@
   
   img {
     border-style: none; /* Remove border when inside `a` element in IE 8/9/10 */
+    vertical-align: middle;
   }
   
   /* Add the correct vertical alignment in Chrome, Firefox, and Opera */
@@ -353,7 +354,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: 0.3s;
-  font-feature-settings: "palt";
+  font-feature-settings: "palt" 1;
+  color: #222a52;
+  animation: fadeIn 2s ease 0s 1 normal;
 }
 
 h1,
@@ -369,7 +372,11 @@ a,
 button,
 input,
 textarea {
-  color: #222a52;
+  color: #222A52;
+}
+
+p, ul, ol, dl, textarea, span, a {
+  line-height: 1.6;
 }
 
 code {
@@ -379,4 +386,16 @@ code {
 
 a {
   color: #9671ff;
+}
+
+/* animation */
+@keyframes fadeIn {
+  0% { opacity: 0}
+  100% { opacity: 1 }
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
 }

@@ -1,17 +1,24 @@
-import * as React from "react";
-import Layout from "../components/layout";
+import React from "react";
+import {css} from "@emotion/react";
 
-const ContactPage = () => (
-    <Layout>
-        <h1>contact</h1>
-        <form method="post" netlify-honeypot="bot-field" data-netlify="true" name="contact">
-            <input type="hidden" name="bot-field" />
-            <input type="hidden" name="form-name" value="contact" />
-            <label> Email <input type="email" name="email" /> </label>
-            <label> Name <input type="text" name="name" /> </label>
-            <label> Message <input type="text" name="message" /> </label>
-        </form>
-    </Layout>
-);
+import Layout from "../components/layout";
+import Seo from "../components/seo";
+import PageTitle from "../components/pageTitle";
+import ContactForm from "../components/contactForm";
+
+const SContactDescription = css`
+grid-column: 1/-1;
+`;
+
+const ContactPage = () => {
+    return (
+        <Layout>
+            <Seo title="CONTACT" description={`Gatsby site`} />
+            <PageTitle>contact</PageTitle>
+            <p css={SContactDescription}>ご相談、お見積りのご依頼など、お気軽にお問い合わせください。 確認の上、返信させていただきます。</p>
+            <ContactForm />
+        </Layout>
+    )
+};
 
 export default ContactPage;

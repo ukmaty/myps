@@ -1,37 +1,51 @@
-import * as React from "react";
+import React from "react";
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout";
-import ProjectsLink from "../components/projects-link";
+import ProjectsLink from "../components/projectsLink";
+import Seo from "../components/seo";
+import PageTitle from "../components/pageTitle";
 
-const ProjectsPage = ({ data }) => (
+const ProjectsPage = ({ data }) => {
+  const works = data.allContentfulWorks;
+
+  return (
     <Layout>
-        <h1>projects</h1>
-        <div>
-            {data.allContentfulWorks.edges.map(edge =>
-                <ProjectsLink key={edge.node.slug} work={edge.node} />
-            )}
-        </div>
+      <Seo title="PROJECTS" description={`Gatsby site`} />
+      <PageTitle>projects</PageTitle>
+      <ProjectsLink works={works} />
     </Layout>
-);
-
-export default ProjectsPage;
+  )
+};
 
 export const projectsQuery = graphql`
     query allContentfulWorks {
     allContentfulWorks {
     edges {
         node {
-        title
-        image {
-            title
-            file {
-            url
-            }
-        }
-        slug
+          title
+          subtitle
+          image {
+              title
+              file {
+                url
+              }
+              gatsbyImageData(width: 560, quality: 85, layout: FULL_WIDTH)
+              fluid(maxWidth: 10, quality: 10) {
+                srcSet
+              }
+          }
+          category {
+              name
+          }
+          tag {
+            name
+          }
+          slug
         }
     }
     }
     }
 `;
+
+export default ProjectsPage;

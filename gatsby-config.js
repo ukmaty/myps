@@ -3,8 +3,11 @@ require("dotenv").config({
 });
 
 module.exports = {
+  flags: {
+    DEV_SSR: true
+  },
   siteMetadata: {
-    title: "mypsga",
+    title: "myps",
     description: "Matsui Yuki ポートフォリオ",
     author: "Matsui Yuki"
   },
@@ -18,14 +21,19 @@ module.exports = {
     },
     "gatsby-plugin-emotion",
     "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
+        name: "Matsui Yuki Portfolio Site",
         icon: "src/images/icon.png",
+        short_name: "MYPS",
+        start_url: "/",
+        background_color: "#ffffff",
+
       },
     },
-    "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-filesystem",
@@ -35,14 +43,22 @@ module.exports = {
       },
       __key: "images",
     },
+    `gatsby-transformer-sharp`,
     {
-      resolve: "gatsby-transformer-remark",
+      resolve: `gatsby-transformer-remark`,
       options: {
         commonmark: true,
         footnotes: true,
         pedantic: true,
         gfm: true,
-        plugins: []
+        plugins: [
+          {
+            resolve: `gatsby-remark-images-contentful`,
+            options: {
+              maxWidth: 680,
+            },
+          },
+        ],
       },
     },
   ],
