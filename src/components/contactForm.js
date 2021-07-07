@@ -100,7 +100,7 @@ const ContactForm = () => {
                 css={SForm}
             >
                 <input type="hidden" name="bot-field" />
-                <input type="hidden" name="form-name" value="contact" />
+                <input type="hidden" name="contact" value="contact" />
                 <noscript><p>Won't work with JavaScript disabled...</p></noscript>
 
                 <div css={SFormItem}>
