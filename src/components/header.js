@@ -11,6 +11,9 @@ background-color: rgba(255, 255, 255, 0.4);;
 position: sticky;
 top: 0;
 z-index: 100;
+@media screen and (min-width: 600px) {
+  padding: 0 1rem;
+}
 `;
 
 const SHeaderContainer = css`

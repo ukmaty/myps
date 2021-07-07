@@ -2,11 +2,10 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { css } from "@emotion/react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { SiHtml5, SiCss3, SiJavascript, SiSass, SiGulp, SiWordpress, SiGatsby, SiFigma, SiReact, SiWebpack, SiPython, SiAdobephotoshop, SiAdobeillustrator, SiTwitter, SiGithub } from 'react-icons/si';
 
 import Seo from "../components/seo";
 import Layout from "../components/layout";
-import ContentGrid from "../components/contentGrid";
 import PageTitle from "../components/pageTitle";
 import FaIcon from "../components/faIcon";
 
@@ -27,13 +26,11 @@ grid-template-columns: repeat(6, 1fr);
 const SIntroImageContainer = css`
 grid-area: 1/1/3/8;
 
+img { width: 100%; }
+
 @media screen and (max-width: 600px) {
 grid-column: 1/-1;
 grid-row: 1/2;
-}
-
-img {
-width: 100%;
 }
 `;
 
@@ -47,18 +44,7 @@ word-break: break-all;
 opacity: .96;
 z-index: 1;
 
-@media screen and (max-width: 600px) {
-grid-column: 1/-1;
-grid-row: 2/3;
-margin-top: -2rem;
-padding: 2rem;
-}
-
 h2 { margin-bottom: 2rem; }
-
-@media screen and (max-width: 600px) {
-p { margin-top: .5rem; }
-}
 
 p { margin-top: 1rem; }
 
@@ -67,11 +53,21 @@ display: inline-block;
 margin-left: auto;
 font-size: .865rem;
 }
+
+@media screen and (max-width: 600px) {
+grid-column: 1/-1;
+grid-row: 2/3;
+margin-top: -2rem;
+padding: 2rem;
+
+p { margin-top: .5rem; }
+}
 `;
 
 const SInfoContainer = css`
 grid-column: span 6;
 margin-top: 2rem;
+
 media screen and (max-width: 600px) {
 grid-column: 1/-1;
 }
@@ -126,15 +122,19 @@ const AboutPage = ({ data }) => {
                                 <div css={SInfoContainer}>
                                     <h3>experience</h3>
                                     <ul css={SIconList}>
-                                        <li css={SIconListItem}><FontAwesomeIcon icon={FaIcon.html} title="HTML" className="icon" /></li>
-                                        <li css={SIconListItem}><FontAwesomeIcon icon={FaIcon.css} title="CSS" className="icon" /></li>
-                                        <li css={SIconListItem}><FontAwesomeIcon icon={FaIcon.js} title="JavaScript" className="icon" /></li>
-                                        <li css={SIconListItem}><FontAwesomeIcon icon={FaIcon.sass} title="Sass" className="icon" /></li>
-                                        <li css={SIconListItem}><FontAwesomeIcon icon={FaIcon.gulp} title="gulp" className="icon" /></li>
-                                        <li css={SIconListItem}><FontAwesomeIcon icon={FaIcon.wp} title="WordPress" className="icon" /></li>
-                                        <li css={SIconListItem}><FontAwesomeIcon icon={FaIcon.react} title="React" className="icon" /></li>
-                                        <li css={SIconListItem}><FontAwesomeIcon icon={FaIcon.python} title="python" className="icon" /></li>
-                                        <li css={SIconListItem}><FontAwesomeIcon icon={FaIcon.figma} title="figma" className="icon" /></li>
+                                        <li css={SIconListItem}><SiHtml5 title="HTML" className="icon" /></li>
+                                        <li css={SIconListItem}><SiCss3 title="CSS" className="icon" /></li>
+                                        <li css={SIconListItem}><SiJavascript title="JavaScript" className="icon" /></li>
+                                        <li css={SIconListItem}><SiSass title="Sass" className="icon" /></li>
+                                        <li css={SIconListItem}><SiGulp title="gulp" className="icon" /></li>
+                                        <li css={SIconListItem}><SiWordpress icon={FaIcon.wp} title="WordPress" className="icon" /></li>
+                                        <li css={SIconListItem}><SiGatsby title="Gatsybyjs" className="icon" /></li>
+                                        <li css={SIconListItem}><SiFigma title="Figma" className="icon" /></li>
+                                        <li css={SIconListItem}><SiAdobephotoshop title="Photoshop" className="icon" /></li>
+                                        <li css={SIconListItem}><SiAdobeillustrator title="Illustrator" className="icon" /></li>
+                                        <li css={SIconListItem}><SiWebpack title="webpack" className="icon" /></li>
+                                        <li css={SIconListItem}><SiReact title="React" className="icon" /></li>
+                                        <li css={SIconListItem}><SiPython title="python" className="icon" /></li>
                                     </ul>
                                 </div>
 
@@ -142,10 +142,14 @@ const AboutPage = ({ data }) => {
                                     <h3>information</h3>
                                     <div>
                                         <ul css={SIconList}>
-                                            <li css={SIconListItem}><Link to="https://twitter.com/ukmaty" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={FaIcon.twitter} title="twitter" className="icon" /></Link></li>
-                                            <li css={SIconListItem}><Link to="https://github.com/ukmaty/" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={FaIcon.gh} title="github" className="icon" /></Link></li>
+                                            <li css={SIconListItem}><Link to="https://twitter.com/ukmaty" target="_blank" rel="noreferrer"><SiTwitter title="twitter" className="icon" /></Link></li>
+                                            <li css={SIconListItem}><Link to="https://github.com/ukmaty/" target="_blank" rel="noreferrer"><SiGithub title="github" className="icon" /></Link></li>
                                         </ul>
                                     </div>
+                                </div>
+
+                                <div>
+
                                 </div>
                             </div>
                         </>
