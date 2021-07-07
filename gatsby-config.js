@@ -12,6 +12,15 @@ module.exports = {
     author: "Matsui Yuki"
   },
   plugins: [
+    "gatsby-plugin-sitemap",
+    {
+        resolve: "gatsby-plugin-robots-txt",
+        options: {
+          host: "https://www.cozito.me",
+          sitemap: "https://cozito.me/sitemap.xml",
+          policy: [{ userAgent: "*", disallow: "/" }]
+        }
+    },
     {
       resolve: "gatsby-source-contentful",
       options: {
@@ -43,9 +52,9 @@ module.exports = {
       },
       __key: "images",
     },
-    `gatsby-transformer-sharp`,
+    "gatsby-transformer-sharp",
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: "gatsby-transformer-remark",
       options: {
         commonmark: true,
         footnotes: true,
@@ -53,7 +62,7 @@ module.exports = {
         gfm: true,
         plugins: [
           {
-            resolve: `gatsby-remark-images-contentful`,
+            resolve: "gatsby-remark-images-contentful",
             options: {
               maxWidth: 680,
             },

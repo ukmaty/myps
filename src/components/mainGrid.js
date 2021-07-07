@@ -23,7 +23,6 @@ grid-row-gap: 1rem;
 grid-template-columns: repeat(6, 1fr);
 padding-top: 1rem;
 padding-bottom: 1rem;
-// padding: 0;
 }
 
 @media screen and (max-width: 1031px) {
