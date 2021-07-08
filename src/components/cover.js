@@ -15,15 +15,14 @@ background-size: 150% 150%;
 `;
 
 const SContainer = css`
-padding: 2rem;
+padding: 1.5rem;
 
 @media screen and (min-width: 600px) {
-padding: 4rem;
+padding: 5rem;
 }
 `;
 
 const SH1 = css`
-margin: auto;
 color: #222a52;
 font-size: 2.5rem;
 
@@ -71,7 +70,7 @@ const Cover = () => {
     return (
         <div css={SCover}>
             <div css={SContainer}>
-                <h1 css={SH1}>Hello, I'm Matsui Yuki, graphic designer, front-end coder. Thank you for finding me.</h1>
+                <h1 css={SH1}>Hello, I'm Matsui Yuki, graphic designer, front-end coder. <br />Thank you for finding me.</h1>
                 <div css={SButtonContainer}>
                     <StaticImage src="../images/avatar.png" alt="MY avator" css={SAvatar} />
                     <button css={SButton} onClick={onClickTo}>ENTER</button>
