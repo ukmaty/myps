@@ -7,6 +7,7 @@ module.exports = {
     DEV_SSR: true
   },
   siteMetadata: {
+    siteUrl: "https://www.cozito.me",
     title: "myps",
     description: "Matsui Yuki ポートフォリオ",
     author: "Matsui Yuki"
@@ -16,9 +17,9 @@ module.exports = {
     {
         resolve: "gatsby-plugin-canonical-urls",
         options: {
-          siteUrl: "https://cozito.me",
+          siteUrl: "https://www.cozito.me",
           stripQueryString: true,
-        },
+        },  
     },
     {
         resolve: "gatsby-plugin-robots-txt",
