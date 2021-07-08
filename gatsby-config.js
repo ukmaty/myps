@@ -14,6 +14,13 @@ module.exports = {
   plugins: [
     "gatsby-plugin-sitemap",
     {
+        resolve: "gatsby-plugin-canonical-urls",
+        options: {
+          siteUrl: "https://cozito.me",
+          stripQueryString: true,
+        },
+    },
+    {
         resolve: "gatsby-plugin-robots-txt",
         options: {
           host: "https://www.cozito.me",

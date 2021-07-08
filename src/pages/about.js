@@ -7,7 +7,6 @@ import { SiHtml5, SiCss3, SiJavascript, SiSass, SiGulp, SiWordpress, SiGatsby, S
 import Seo from "../components/seo";
 import Layout from "../components/layout";
 import PageTitle from "../components/pageTitle";
-import FaIcon from "../components/faIcon";
 
 const SIntroduction = css`
 grid-column: 1/-1;
@@ -127,7 +126,7 @@ const AboutPage = ({ data }) => {
                                         <li css={SIconListItem}><SiJavascript title="JavaScript" className="icon" /></li>
                                         <li css={SIconListItem}><SiSass title="Sass" className="icon" /></li>
                                         <li css={SIconListItem}><SiGulp title="gulp" className="icon" /></li>
-                                        <li css={SIconListItem}><SiWordpress icon={FaIcon.wp} title="WordPress" className="icon" /></li>
+                                        <li css={SIconListItem}><SiWordpress title="WordPress" className="icon" /></li>
                                         <li css={SIconListItem}><SiGatsby title="Gatsybyjs" className="icon" /></li>
                                         <li css={SIconListItem}><SiFigma title="Figma" className="icon" /></li>
                                         <li css={SIconListItem}><SiAdobephotoshop title="Photoshop" className="icon" /></li>
