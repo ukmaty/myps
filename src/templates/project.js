@@ -34,7 +34,7 @@ margin-top: 1rem;
 padding: 0 1rem;
 }
 
-p { margin-top: 3rem; }
+p { margin-top: 2rem; }
 img { width: 100%; }
 `;
 

@@ -10,7 +10,7 @@ margin-bottom: 1rem;
 h2 {
 font-size: 1.5rem;
 margin-top: 3rem;
-margin-bottom: .75rem;        
+margin-bottom: .75rem;
 }
 `;
 

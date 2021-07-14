@@ -73,7 +73,7 @@ const Cover = () => {
                 <h1 css={SH1}>Hello, I'm Matsui Yuki, graphic designer, front-end coder. <br />Thank you for finding me.</h1>
                 <div css={SButtonContainer}>
                     <StaticImage src="../images/avatar.png" alt="MY avator" css={SAvatar} />
-                    <button css={SButton} onClick={onClickTo}>ENTER</button>
+                    <button css={SButton} onClick={onClickTo}>about me</button>
                 </div>
             </div>
         </div>
