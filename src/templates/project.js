@@ -36,6 +36,10 @@ padding: 0 1rem;
 
 p { margin-top: 2rem; }
 img { width: 100%; }
+
+a {
+  color: #5974fe;
+}
 `;
 
 const Project = ({ pageContext }) => {

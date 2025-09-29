@@ -23,7 +23,7 @@ background-color: #ffffff;
 transition: 0;
 &:focus {
 outline: none;
-background-color: #E7F2FB; 
+background-color: #E7F2FB;
 }
 `;
 
